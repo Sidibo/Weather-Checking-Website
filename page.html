@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>weather forcast</title>
+        <link rel="stylesheet" href="edit.css">
+    </head>
+
+    <body>
+        <input type="text" id="city" placeholder="Enter the city">
+        <span id="error" style="color: red;"></span>
+        <button class="btn"><img src="search.png" width="25px" height="25px" id="search"></button>
+        <span id="temp_span">Temperature</span>
+        <div id="icon"><img src="haze.png" width="180px" height="180px"></div>
+        <div id="temp">25.97°C</div>
+        <div id="city_name">Kolkata</div>
+        <div id="nature"></div>
+        <div class="container">
+        <span class="span" id="feels_like_span">Feels Like</span>
+        <div class="sub_container" id="feels_like">25.97°C</div>
+        <span class="span" id="temp_min_span">Min Temperature</span>
+        <div class="sub_container" id="temp_min">25.97°C</div>
+        <span class="span" id="temp_max_span">Max Temprature</span>
+        <div class="sub_container" id="temp_max">25.97°C</div>
+        <span class="span" id="pressure_span">Pressure</span>
+        <div class="sub_container" id="pressure">1012Hg</div>
+        <span class="span" id="humidity_span">Humidity</span>
+        <div class="sub_container" id="humidity">83%</div>
+        <span class="span" id="sea_level_span">Sea Level</span>
+        <div class="sub_container" id="sea_level">1012°C</div>
+        <span class="span" id="grnd_level_span">Ground Level</span>
+        <div class="sub_container" id="grnd_level">1011°C</div>
+        <span class="span" id="speed_span">Wind Speed</span>
+        <div class="sub_container" id="speed">1.54km/h</div>
+        </div>
+    </body>
+    <script>
+        const apiKey="6e248f424a70064f95209c4c3fc3feab";
+        const apiUrl="https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+        const searchBtn=document.querySelector(".btn");
+        const searchBox =document.querySelector("#city");
+        const error=document.querySelector("#error");
+        const city_name=document.querySelector("#city_name");
+        const temp=document.querySelector("#temp");
+        const feels_like=document.querySelector("#feels_like");
+        const temp_min=document.querySelector("#temp_min");
+        const temp_max=document.querySelector("#temp_max");
+        const pressure=document.querySelector("#pressure");
+        const humidity=document.querySelector("#humidity");
+        const sea_level=document.querySelector("#sea_level");
+        const grnd_level=document.querySelector("#grnd_level");
+        const speed=document.querySelector("#speed");        
+        const icon=document.querySelector("#icon");
+        const nature=document.querySelector("#nature");
+        async function checkWeather(city){
+            const response=await fetch(apiUrl + city + `&appid=${apiKey}`);
+            if(response.status==404){
+                error.innerHTML="Invalid city name !!";
+            }
+            else{
+                // console.log(response);
+                var data=await response.json();
+                // console.log(data);
+                city_name.innerHTML=`${data.name}`;
+                temp.innerHTML=`${data.main.temp}` + "*C";
+                feels_like.innerHTML=`${data.main.feels_like}` + "°C";
+                temp_min.innerHTML=`${data.main.temp_min}` + "°C";
+                temp_max.innerHTML=`${data.main.temp_max}` + "°C";
+                pressure.innerHTML=`${data.main.pressure}` + "Hg";
+                humidity.innerHTML=`${data.main.humidity}` + "%";
+                sea_level.innerHTML=`${data.main.sea_level}` + "°C";
+                grnd_level.innerHTML=`${data.main.grnd_level}` + "°C";
+                speed.innerHTML=`${data.wind.speed}` + "km/h";
+                icon.innerHTML=`${data.weather[0].icon}`;
+                // console.log(data.weather[0].main);
+                nature.innerHTML=`${data.weather[0].main}`;
+                if(data.weather[0].main=="Clouds"){
+                    icon.innerHTML=`<img src="clouds.png" width="180px" height="180px">`;
+                }
+                else if(data.weather[0].main=="Clear"){
+                    icon.innerHTML=`<img src="clear.png" width="180px" height="180px">`;
+                }
+                else if(data.weather[0].main=="Rain"){
+                    icon.innerHTML=`<img src="rain.png" width="180px" height="180px">`;
+                }
+                else if(data.weather[0].main=="Drizzle"){
+                    icon.innerHTML=`<img src="drizzle.png" width="180px" height="180px">`;
+                }
+                else if(data.weather[0].main=="Mist"){
+                    icon.innerHTML=`<img src="mist.png" width="180px" height="180px">`;
+                }
+                else if(data.weather[0].main=="Haze"){
+                    icon.innerHTML=`<img src="haze.png" width="180px" height="180px">`;
+                }
+                else if(data.weather[0].main=="Smoke"){
+                    icon.innerHTML=`<img src="Smoke.png" width="180px" height="180px">`;
+                }
+                error.innerHTML=" ";
+            }
+        }
+        searchBtn.addEventListener("click", () => {checkWeather(searchBox.value);});
+    </script>
+</html>

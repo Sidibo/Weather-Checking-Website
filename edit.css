@@ -1,0 +1,194 @@
+body{
+    background-image: url(back_demo.jpg);
+    /* background-color: skyblue; */
+    /* width: 100%;
+    height: 100%; */
+    overflow: auto;
+}
+#icon{
+    position: fixed;
+    top: 30px;
+    right: 80px;
+    height: 200px;
+    width: 200px;
+    /* border: 2px solid black; */
+    border: none;
+    /* border-radius: 30%; */
+    margin: 10px;
+    padding: 10px;
+    padding-top: 30px;
+    font-size: 70px;
+    text-align: center;
+}
+#city{
+    height: 50px;
+    width: 400px;
+    position: fixed;
+    top: 20px;
+    left: 430px;
+    border: 1 px solid;
+    border-radius: 15%;
+    text-align: center;
+    font-size: 25px;
+}
+#search{
+    border: none;
+    border-radius: 50%;
+}
+#error{
+    position: fixed;
+    top: 70px;
+    left: 550px;
+    font-size: 20px;
+}
+.btn{
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    top: 20px;
+    right: 380px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+.btn:hover{
+    background-color: black;
+}
+#temp{
+    height: 120px;
+    width: 300px;
+    position: fixed;
+    top: 90px;
+    left: 480px;
+    border: 2px solid black;
+    border-radius: 30%;
+    font-size: 70px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    color: aliceblue;
+}
+#city_name{
+    color: aliceblue;
+    height: 50px;
+    width: 300px;
+    position: fixed;
+    top: 230px;
+    left: 480px;
+    border: 2px solid black;
+    border-radius: 30%;
+    font-size: 40px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+.sub_container{
+    /* background-image: url(feels_like.png); */
+    height: 120px;
+    width: 300px;
+    border: 2px solid black;
+    /* border: none; */
+    border-radius: 30%;
+    margin: 10px;
+    padding: 0px;
+    padding-right: 7px;
+    padding-top: 5px;
+    font-size: 60px;
+    font-weight: bolder;
+    text-align: center;
+    /* background-color: blueviolet; */
+    backdrop-filter: blur(30px);
+    color: aliceblue;
+    /* box-shadow: 2px 2px 2px 2px blue; */
+
+    /* display: grid;
+    grid-template-columns: repeat(3,2px); */
+}
+ .container{
+    position: fixed;
+    left: 5px;
+    top: 300px;
+
+    display: grid;
+    grid-template-columns: repeat(4,2fr);
+}
+.span{
+    font-size: 20px;
+    font-weight: bolder;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* display: grid;
+    grid-template-columns: repeat(4,10fr); */
+}
+#feels_like_span{
+    /* border: 1px solid black; */
+    color: aliceblue;
+    position: fixed;
+    top: 280px;
+    left: 50px;
+}
+#temp_min_span{
+    color: aliceblue;
+    position: fixed;
+    top: 280px;
+    left: 350px;
+}
+#temp_max_span{
+    color: aliceblue;
+    position: fixed;
+    top: 280px;
+    left: 700px;
+}
+#pressure_span{
+    color: aliceblue;
+    position: fixed;
+    top: 280px;
+    left: 1000px;
+}
+#humidity_span{
+    color: aliceblue;
+    position: fixed;
+    top: 430px;
+    left: 50px;
+    
+}
+#sea_level_span{
+    color: aliceblue;
+    position: fixed;
+    top: 430px;
+    left: 350px;
+    
+}
+#grnd_level_span{
+    color: aliceblue;
+    position: fixed;
+    top: 430px;
+    left: 700px;
+   
+}
+#speed_span{
+    color: aliceblue;
+    position: fixed;
+    top: 430px;
+    left: 1000px;
+    
+}
+
+#temp_span{
+    color: aliceblue;
+    font-size: 30px;
+    font-weight: bolder;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: fixed;
+    top: 100px;
+    left: 270px;
+}
+#nature{
+    position: fixed;
+    top: 150px;
+    right: 340px;
+    height: 70px;
+    width: 200px;
+    border: none;
+    border-radius: 30%;
+    margin: 10px;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bolder;
+}
